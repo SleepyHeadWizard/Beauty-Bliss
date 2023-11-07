@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Salon</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Beauty Bliss</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>Welcome to Beauty Bliss</h2>
+        <p>Your destination for beauty and relaxation</p>
+        <a href="#services" class="btn">Explore Our Services</a>
+    </section>
+
+        <h2 style="text-align: center; font-size: 36px; margin-bottom: -3px;">Our Services</h2>
+
+        <section id="services" class="services">
+
+            <div class="service">
+                <div class="service-image">
+                    <img src="Haircut & Styling.jpeg" alt="Haircut">
+                </div>
+                <div class="service-text">
+                    <h3>Haircut & Styling</h3>
+                    <p>Our professional stylists will give you the perfect look.</p>
+                </div>
+            </div>
+            
+            <div class="service" id="manicure-service">
+                <div class="service-image">
+                    <img src="Manicure.jpeg" alt="Manicure">
+                </div>
+                <div class="service-text">
+                    <h3>Manicure & Pedicure</h3>
+                    <p>Pamper yourself with our nail care services.</p>
+                </div>
+            </div>
+            
+            
+            <div class="service">
+                <div class="service-image">
+                    <img src="Facial Treatments.jpeg" alt="Facial">
+                </div>
+                <div class="service-text">
+                    <h3>Facial Treatments</h3>
+                    <p>Revitalize your skin with our rejuvenating facials.</p>
+                </div>
+            </div>
+        </section>
+
+<!-- Testimonials -->
+<div id="craouselContainer" class="swiper-container">
+    <div class="swiper-wrapper" id="slideHolder">
+        <!-- Slides -->
+        
+
+    </div>
+    <div class="swiper-pagination"></div>
+    
+</div>
+
+        <!-- About Us -->
+        <section class="about" id="about">
+            <h2>About Us</h2>
+            <p>We are a team of experienced professionals dedicated to making you look and feel your best. Our salon offers a wide range of beauty services to enhance your natural beauty and promote relaxation. Visit us today for a rejuvenating experience.</p>
+        </section>
+
+ <!-- Contact Us -->
+ <section id="contact" class="contact">
+    <div class="mx-auto px-4 py-20 lg:container sm:px-12 xl:px-32">
+        <div class="card-container">
+            <div class="primary-color-bg rounded-t-lg">
+                <div class="flex justify-center items-center h-32">
+                    <h2 class="text-2xl font-semibold text-white">Contact Us</h2>
+                </div>
+
+            <div class="form-content p-4">
+                <form id="contact-us-form">
+                    <div class="flex flex-col space-y-4 md:space-y-12">
+                        <div class="flex flex-col space-y-4 md:flex-row md:space-x-8 md:space-y-0">
+                            <div class="w-full">
+                                <label for="first-name" class="font-medium text-gray-700">First Name</label>
+                                <input id="first-name" name="first-name" type="text" class="w-full border border-white border-b-gray-300 p-2">
+                            </div>
+                            <div class="w-full">
+                                <label for="last-name" class="font-medium text-gray-700">Last Name</label>
+                                <input id="last-name" name="last-name" type="text" class="w-full border border-white border-b-gray-300 p-2">
+                            </div>
+                        </div>
+                        <div class="flex flex-col space-y-4 md:flex-row md:space-x-8 md:space-y-0">
+                            <div class="w-full">
+                                <label for="email" class="font-medium text-gray-700">Email Address</label>
+                                <input id="email" type="email" name="email" class="w-full border border-white border-b-gray-300 p-2">
+                            </div>
+                            <div class="w-full">
+                                <label for="phone" class="font-medium text-gray-700">Phone</label>
+                                <input id="phone" type="tel" name="phone" class="w-full border border-white border-b-gray-300 p-2">
+                            </div>
+                        </div>
+                        <div class="w-full">
+                            <label for="message" class="font-medium text-gray-700">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full border border-white border-b-gray-300 p-2"></textarea>
+                        </div>
+                        <button type="submit" class="primary-color-bg items-center rounded px-8 py-3 text-sm font-semibold uppercase text-white bg-rose-500 hover:bg-rose-400">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <footer>
+            <p>&copy; 2023 Beauty Bliss Salon</p>
+        </footer>
+
+        <script>
+            const contactForm = document.getElementById('contact-us-form');
+            const firstName = document.getElementById('first-name');
+            const lastName = document.getElementById('last-name');
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            const message = document.getElementById('message');
+        
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+        
+                if (validateForm()) {
+                    // Form is valid, you can submit it to the server or perform any other action here
+                    console.log('Form is valid. Submitting...');
+                }
+            });
+        
+            function validateForm() {
+                let isValid = true;
+        
+                if (firstName.value.trim() === '') {
+                    displayError(firstName, 'First Name is required');
+                    isValid = false;
+                } else {
+                    clearError(firstName);
+                }
+        
+                if (lastName.value.trim() === '') {
+                    displayError(lastName, 'Last Name is required');
+                    isValid = false;
+                } else {
+                    clearError(lastName);
+                }
+        
+                const emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+                if (!email.value.match(emailRegex)) {
+                    displayError(email, 'Invalid email format');
+                    isValid = false;
+                } else {
+                    clearError(email);
+                }
+        
+                if (phone.value.trim() === '') {
+                    displayError(phone, 'Phone is required');
+                    isValid = false;
+                } else {
+                    clearError(phone);
+                }
+        
+                if (message.value.trim() === '') {
+                    displayError(message, 'Message is required');
+                    isValid = false;
+                } else {
+                    clearError(message);
+                }
+        
+                return isValid;
+            }
+        
+            function displayError(input, errorMessage) {
+                const errorElement = input.nextElementSibling;
+                errorElement.innerText = errorMessage;
+            }
+        
+            function clearError(input) {
+                const errorElement = input.nextElementSibling;
+                errorElement.innerText = '';
+            }
+        </script>
+        
+
+    </body>
+    </html>

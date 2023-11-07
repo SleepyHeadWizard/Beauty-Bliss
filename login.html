@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login-styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Beauty Bliss</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="background-image">
+        <div class="login-container">
+            <h1>Login</h1>
+            <form action="login.php" method="post">
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit">Login</button>
+                <p>
+                    Don't have an account? <a href="regester_page.html">Register</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function (event) {
+                const username = document.querySelector("input[name='username']").value;
+                const password = document.querySelector("input[name='password']").value;
+    
+                if (username.trim() === "" || password.trim() === "") {
+                    event.preventDefault(); // Prevent the form submission
+                    alert("Please fill in both the username and password fields.");
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
